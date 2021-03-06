@@ -15,7 +15,7 @@ function App() {
   const [fetchedsurah, setFetchedSurah] = useState({})
 
   const fetchQuranData = () => {
-    fetch("https://raw.githubusercontent.com/semarketir/quranjson/master/source/surah/surah_2.json")
+    fetch(`https://raw.githubusercontent.com/semarketir/quranjson/master/source/surah/surah_${}.json`)
     .then(res => res.json())
     .then(quranData => setFetchedSurah(quranData))
   
@@ -32,11 +32,13 @@ if (fetchedsurah.verse){
 displayedAyat = surahArray.map(ayah => {
   return <p>{ayah}</p>
 })}
-
+//input tag which stores numbers onChange- event listener
+//when get surah is clicked, trigger fetchQuranData with stored number and append to string in fetch
   
   return (
     <div> 
-    <button onClick={()=> fetchQuranData()}> Get Surah</button>
+    <input type='Number'/>
+    <button onClick={()=> fetchQuranData()}> Get Surah {surahNumber}</button>
     <p>{displayedAyat}</p>
     </div>
   );
