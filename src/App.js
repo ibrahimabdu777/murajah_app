@@ -1,29 +1,44 @@
-import React from "react";
-import quranData from "./qurandata.json"
-     
-      
-      {/* <p>{verses.index}</p>
-      <p>{verses.name}</p>
-      <p>{verses.verse.verse_1}</p>
-      for (i=0; i<verses.verse.length; i++)
-      {
-        <p>verses.verse[i]</p>;
-      }
-      {/* <p>{Object.values(verses.verse)}</p> */}
-      {/* <p>{verses.verse.verse_2}</p>
-      <p>{verses.verse.verse_3}</p>
-      <p>{verses.verse.verse_4}</p>
-      <p>{verses.verse.verse_5}</p>
-      <p>{verses.verse.verse_6}</p>
-      <p>{verses.verse.verse_7}</p> */}
-const quranDataObject = Object.values(quranData.verse)
-const displayedAyat = quranDataObject.map((x) => {
-  return <p>{x}</p>
-})
+import React, { useState } from "react";
+
+
+
+//Get each element in array 
+
+
+//Get verses from each element 
+//Map verses
+
+
+
 function App() {
+
+  const [fetchedsurah, setFetchedSurah] = useState({})
+
+  const fetchQuranData = () => {
+    fetch("https://raw.githubusercontent.com/semarketir/quranjson/master/source/surah/surah_2.json")
+    .then(res => res.json())
+    .then(quranData => setFetchedSurah(quranData))
+  
+    
+  }
+
+ 
+
+
+let displayedAyat= null
+
+if (fetchedsurah.verse){
+  const surahArray = Object.values(fetchedsurah.verse)
+displayedAyat = surahArray.map(ayah => {
+  return <p>{ayah}</p>
+})}
+
   
   return (
-    <div>{displayedAyat}</div>
+    <div> 
+    <button onClick={()=> fetchQuranData()}> Get Surah</button>
+    <p>{displayedAyat}</p>
+    </div>
   );
 }
 
