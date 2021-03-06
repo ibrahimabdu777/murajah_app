@@ -2,20 +2,26 @@ import React, { useState } from "react";
 
 
 
-//Get each element in array 
-
-
-//Get verses from each element 
-//Map verses
-
+const array = []
+for (let i = 1;i<115; i ++ ) {
+  array.push(i)
+}
 
 
 function App() {
 
+  
+
   const [fetchedsurah, setFetchedSurah] = useState({})
 
+  let surahNumber = 1
+  const storeSurahNumber=(e)=>{
+    surahNumber=e.target.value
+  }
+
   const fetchQuranData = () => {
-    fetch(`https://raw.githubusercontent.com/semarketir/quranjson/master/source/surah/surah_${1}.json`)
+
+    fetch(`https://raw.githubusercontent.com/semarketir/quranjson/master/source/surah/surah_${surahNumber}.json`)
     .then(res => res.json())
     .then(quranData => setFetchedSurah(quranData))
   
@@ -37,7 +43,12 @@ displayedAyat = surahArray.map(ayah => {
   
   return (
     <div> 
-    <input type='Number'/>
+    {/* <input type='Number' onChange={(e)=> storeSurahNumber(e)}/> */}
+    <select onChange={(e)=> storeSurahNumber(e)}>
+      {array.map((element)=> {
+        return  <option value={element}>{element}</option>
+      })}
+    </select>
     <button onClick={()=> fetchQuranData()}> Get Surah </button>
     <p>{displayedAyat}</p>
     </div>
