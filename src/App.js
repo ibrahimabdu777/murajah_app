@@ -38,7 +38,7 @@ displayedAyat = surahArray.map(ayah => {
   return (
     <div> 
     <input type='Number'/>
-    <button onClick={()=> fetchQuranData()}> Get Surah {surahNumber}</button>
+    <button onClick={()=> fetchQuranData()}> Get Surah </button>
     <p>{displayedAyat}</p>
     </div>
   );
