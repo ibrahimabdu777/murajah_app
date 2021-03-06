@@ -15,7 +15,7 @@ function App() {
   const [fetchedsurah, setFetchedSurah] = useState({})
 
   const fetchQuranData = () => {
-    fetch(`https://raw.githubusercontent.com/semarketir/quranjson/master/source/surah/surah_${}.json`)
+    fetch(`https://raw.githubusercontent.com/semarketir/quranjson/master/source/surah/surah_${1}.json`)
     .then(res => res.json())
     .then(quranData => setFetchedSurah(quranData))
   
