@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#bannerimage {
+  width: 100%;
+  background-image: url(https://cdn.qurancdn.com/assets/logo-lg-w-10a76950b6fdf68f9bf6abdde65eec2553f6f6d97837b65d8836d1a0c39a01c9.png);
+  height: 288px;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#title { 
+  text-align: center;
+  font-size: 45px;
+  color: rgb(0, 102, 128);
+
+}
+
+#subheadings {
+  text-align: left;
+  font-size: 25px;
+  color: rgb(0, 102, 128);
+}
+
+.vertical-center {
+  position: right;
+}
