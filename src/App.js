@@ -56,7 +56,7 @@ displayedAyat = surahArray.map(ayah => {
       })}
     </select>
     
-      <button onClick={()=> fetchQuranData()}> Get Chapter </button>
+      <button className="button" onClick={()=> fetchQuranData()}> Get Chapter </button>
     
     <h2 id="subheadings">Quran:</h2>
     <centre><p>{displayedAyat}</p></centre>

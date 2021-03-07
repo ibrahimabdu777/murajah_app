@@ -34,6 +34,13 @@ code {
   color: rgb(0, 102, 128);
 }
 
-.vertical-center {
-  position: right;
+.button {
+  background-color:  rgb(0, 102, 128); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
