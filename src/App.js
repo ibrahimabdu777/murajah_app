@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-
+// adding surah numbers to array
 const array = []
 for (let i = 1;i<115; i ++ ) {
   array.push(i)
@@ -11,25 +11,27 @@ for (let i = 1;i<115; i ++ ) {
 function App() {
 
   
-
+// useState which will allow us to update fetched surah to a particular surah 
   const [fetchedsurah, setFetchedSurah] = useState({})
 
+// function storeSurahNumber stores the number we enter in surahNumber
   let surahNumber = 1
   const storeSurahNumber=(e)=>{
     surahNumber=e.target.value
   }
-
+// 
   const fetchQuranData = () => {
 
     fetch(`https://raw.githubusercontent.com/semarketir/quranjson/master/source/surah/surah_${surahNumber}.json`)
     .then(res => res.json())
+    // I think this updates fetchedSurah to what was fetched from the API
     .then(quranData => setFetchedSurah(quranData))
   
     
   }
 
  
-
+// create a fucntion displayedAyat which will return all the printed ayats in fetchedSurah
 
 let displayedAyat= null
 
