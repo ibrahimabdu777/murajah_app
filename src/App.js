@@ -46,7 +46,8 @@ let displayedAyat= null
 
 if (fetchedsurah.verse){
   const surahArray = Object.values(fetchedsurah.verse)
-displayedAyat = surahArray.map(ayah => {
+  const firstTenArray = surahArray.slice(0,9)
+displayedAyat = firstTenArray.map(ayah => {
   return <p>{ayah}</p>
 })}
 //input tag which stores numbers onChange- event listener
@@ -76,4 +77,7 @@ displayedAyat = surahArray.map(ayah => {
 }
 
 export default App;
+
+// next task: pull ten ayat at a time when we select get chapter
+
 
