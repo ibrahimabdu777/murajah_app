@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {animated, useSpring} from "react-spring";
 
 
 // adding surah numbers to array
@@ -6,16 +7,24 @@ const array = []
 for (let i = 1;i<115; i ++ ) {
   array.push(i)
 }
-
+let surahNumber = 1
 
 function App() {
 
+  const transition = useSpring({
+    from: {opacity: 0},
+    to: {opacity: 1},
+    config: {duration: 500}
+
+  }
+
+  )
   
 // useState which will allow us to update fetched surah to a particular surah 
   const [fetchedsurah, setFetchedSurah] = useState({})
 
 // function storeSurahNumber stores the number we enter in surahNumber
-  let surahNumber = 1
+ 
   const storeSurahNumber=(e)=>{
     surahNumber=e.target.value
   }
@@ -44,7 +53,7 @@ displayedAyat = surahArray.map(ayah => {
 //when get surah is clicked, trigger fetchQuranData with stored number and append to string in fetch
   
   return (
-    <div> 
+    <animated.div style ={transition}> 
       <div id="bannerimage"></div>
     <h1 id="title">The Quran</h1>
     <h2 id="subheadings">Instructions</h2>
@@ -61,8 +70,8 @@ displayedAyat = surahArray.map(ayah => {
       <button className="button" onClick={()=> fetchQuranData()}> Get Chapter </button>
     
     <h2 id="subheadings">Quran:</h2>
-    <p id="arabic">{displayedAyat}</p>
-    </div>
+    <p  id="arabic">{displayedAyat}</p>
+    </animated.div>
   );
 }
 
