@@ -48,11 +48,11 @@ displayedAyat = surahArray.map(ayah => {
       <div id="bannerimage"></div>
     <h1 id="title">The Quran</h1>
     <h2 id="subheadings">Instructions</h2>
-      <p>This page allows you to view every chapter in the Quran in Arabic. All you need to do is select the chapter you would like to view. </p>
+      <p id="arabic">This page allows you to view every chapter in the Quran in Arabic. All you need to do is select the chapter you would like to view. </p>
       <h2 id="subheadings">Select chapter:</h2>
 
     {/* <input type='Number' onChange={(e)=> storeSurahNumber(e)}/> */}
-    <select onChange={(e)=> storeSurahNumber(e)}>
+    <select onChange={(e)=> storeSurahNumber(e)} className="dropDown">
       {array.map((element)=> {
         return  <option value={element}>{element}</option>
       })}
@@ -61,7 +61,7 @@ displayedAyat = surahArray.map(ayah => {
       <button className="button" onClick={()=> fetchQuranData()}> Get Chapter </button>
     
     <h2 id="subheadings">Quran:</h2>
-    <centre><p>{displayedAyat}</p></centre>
+    <p id="arabic">{displayedAyat}</p>
     </div>
   );
 }

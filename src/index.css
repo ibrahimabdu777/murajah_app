@@ -29,9 +29,10 @@ code {
 }
 
 #subheadings {
-  text-align: left;
+  text-align: center;
   font-size: 25px;
   color: rgb(0, 102, 128);
+  
 }
 
 .button {
@@ -43,4 +44,17 @@ code {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin-left: 350px;
+  
+}
+
+#arabic{
+  text-align: center;
+}
+
+.dropDown{
+  margin-left: 400px;
+  
+  
+  
 }
