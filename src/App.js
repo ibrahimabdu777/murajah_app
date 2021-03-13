@@ -9,8 +9,12 @@ for (let i = 1;i<115; i ++ ) {
 }
 let surahNumber = 1
 
-function App() {
 
+
+function App() {
+  const [startingAyat, setStartingAyat]  = useState(0);
+  const [endingAyat, setEndingAyat]  = useState(10);
+  
   const transition = useSpring({
     from: {opacity: 0},
     to: {opacity: 1},
@@ -18,8 +22,7 @@ function App() {
 
   }
 
-  )
-  
+  ) 
 // useState which will allow us to update fetched surah to a particular surah 
   const [fetchedsurah, setFetchedSurah] = useState({})
 
@@ -39,14 +42,17 @@ function App() {
     
   }
 
- 
+ const getNextPage = () => {
+   setEndingAyat(endingAyat + 10)
+   
+ }
 // create a fucntion displayedAyat which will return all the printed ayats in fetchedSurah
 
 let displayedAyat= null
 
 if (fetchedsurah.verse){
   const surahArray = Object.values(fetchedsurah.verse)
-  const firstTenArray = surahArray.slice(0,9)
+  const firstTenArray = surahArray.slice(startingAyat,endingAyat)
 displayedAyat = firstTenArray.map(ayah => {
   return <p>{ayah}</p>
 })}
@@ -72,12 +78,18 @@ displayedAyat = firstTenArray.map(ayah => {
     
     <h2 id="subheadings">Quran:</h2>
     <p  id="arabic">{displayedAyat}</p>
+    <button className="toggle" onClick={() => getNextPage()} > Get next ten verses
+
+
+    </button>
     </animated.div>
   );
 }
 
 export default App;
 
-// next task: pull ten ayat at a time when we select get chapter
+// next task: pull ten ayat at a time when we select get chapter. COMPLETED
+// next task: make a new button to toggle to next ten verses by adding ten to surahArray.slice inputs
+
 
 
