@@ -78,7 +78,7 @@ displayedAyat = firstTenArray.map(ayah => {
     
     <h2 id="subheadings">Quran:</h2>
     <p  id="arabic">{displayedAyat}</p>
-    <button className="toggle" onClick={() => getNextPage()} > Get next ten verses
+    <button className="toggle" onClick={() => getNextPage()} > Load more
 
 
     </button>
@@ -89,7 +89,9 @@ displayedAyat = firstTenArray.map(ayah => {
 export default App;
 
 // next task: pull ten ayat at a time when we select get chapter. COMPLETED
-// next task: make a new button to toggle to next ten verses by adding ten to surahArray.slice inputs
+// next task: make a new button to toggle to next ten verses by adding ten to surahArray.slice inputs. COMPLETED
+// next task: clean up code into different components
+// next task: highlighting feature 
 
 
 
